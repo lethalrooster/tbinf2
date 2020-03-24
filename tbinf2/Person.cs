@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace tbinf2
 {
-    class Program
+    class Person
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
