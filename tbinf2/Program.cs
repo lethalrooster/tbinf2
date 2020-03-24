@@ -10,6 +10,9 @@ namespace tbinf2
     {
         static void Main(string[] args)
         {
+
+
+            Console.WriteLine("simon skrev detta");
         }
     }
 }
