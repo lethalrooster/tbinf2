@@ -9,6 +9,7 @@ namespace tbBubble
     class Person : IComparable<Person>
     {
         int age;
+        int weight;
         string name;
 
         public Person()
@@ -17,10 +18,11 @@ namespace tbBubble
             name = "unknown";
         }
 
-        public Person(int age, string name)
+        public Person(int age, string name, int weight)
         {
             this.age = age;
             this.name = name;
+            this.weight = weight;
         }
 
         public int Age
@@ -35,10 +37,18 @@ namespace tbBubble
             set { name = value; }
         }
 
+        public int Weight
+        {
+            get { return weight; }
+            set { weight = value; }
+        }
+
         public int CompareTo(Person other)
         {
-            return this.age.CompareTo(other.age); //lägg till *-1 för att ändra sorteringsordning;
+            return age.CompareTo(other.age); //lägg till *-1 för att ändra sorteringsordning;
         }
+
+        //---------------------------------------
 
         public static bool operator <(Person P1, Person P2)
         {
@@ -58,6 +68,16 @@ namespace tbBubble
         public static bool operator !=(Person P1, Person P2)
         {
             return (P1.age != P2.age);
+        }
+
+        public static bool operator <=(Person P1, Person P2)
+        {
+            return (P1.age <= P2.age);
+        }
+
+        public static bool operator >=(Person P1, Person P2)
+        {
+            return (P1.age >= P2.age);
         }
 
 

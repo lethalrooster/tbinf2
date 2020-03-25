@@ -8,6 +8,27 @@ namespace tbBubble
 {
     class Program
     {
+        static void BubbleSort(List<Person> listToSort)
+        {
+            bool isSorted = false;
+
+            while (isSorted == false)
+            {
+                isSorted = true;
+                for (int i = 0; i < listToSort.Count - 1; i++)
+                {
+                    if (listToSort[i] > listToSort[i + 1])
+                    {
+                        Person temp = listToSort[i];
+                        listToSort[i] = listToSort[i + 1];
+                        listToSort[i + 1] = temp;
+
+                        isSorted = false;
+                    }
+                }
+            }
+        }
+
         static void PrintList(List<Person> listToPrint)
         {
             foreach (Person p in listToPrint)
@@ -19,10 +40,10 @@ namespace tbBubble
         static void Main(string[] args)
         {
             //Skapar ett antal objekt av klassen Person
-            Person personA = new Person(29, "Jonas");
-            Person personB = new Person(50, "Anna");
-            Person personC = new Person(10, "Kalle");
-            Person personD = new Person(29, "Diana");
+            Person personA = new Person(29, "Jonas", 70);
+            Person personB = new Person(50, "Anna", 60);
+            Person personC = new Person(10, "Kalle", 85);
+            Person personD = new Person(29, "Diana", 71);
 
             //Skapar en lista och fyller det med personerna
             List<Person> personList = new List<Person>();
@@ -31,10 +52,18 @@ namespace tbBubble
             personList.Add(personC);
             personList.Add(personD);
 
-            
+
             Console.WriteLine("Skriver ut osorterad lista...");
             PrintList(personList);
             Console.WriteLine("");
+
+            BubbleSort(personList);
+
+            Console.WriteLine("Skriver ut sorterad lista (jämför just nu med ålder, från minst till störst)...");
+            PrintList(personList);
+            Console.WriteLine("");
+
+            /*
 
             //Testdel för att testa 
             Console.WriteLine("Sorterar listan (jämför just nu med ålder, från minst till störst)...");
@@ -49,7 +78,7 @@ namespace tbBubble
             //Testdel, för att testa större än (>) och mindre än (<) operatorerna
             if (personA > personB)
             {
-                Console.WriteLine("PersonA är äldre än PersonB");
+                Console.WriteLine("PersonA väger mer än PersonB");
             }
             else if (personA < personB)
             {
@@ -74,12 +103,14 @@ namespace tbBubble
             }
 
 
-            //Bubble sort med en Person
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-            // the code that you want to measure comes here
-            watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
-            Console.WriteLine();
+
+            ////Bubble sort med en Person
+            //var watch = System.Diagnostics.Stopwatch.StartNew();
+            //// the code that you want to measure comes here
+            //watch.Stop();
+            //var elapsedMs = watch.ElapsedMilliseconds;
+            //Console.WriteLine();
+            */
 
         }
     }
