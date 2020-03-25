@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tbinf2", "tbinf2\tbinf2.csproj", "{1A63B839-6C99-4DA2-B120-D408540D42D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tbBubble", "tbBubble\tbBubble.csproj", "{AAA3BD72-DD88-4F9D-ABC4-2CE25DC884B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tbBubblePerson", "tbBubble\tbBubblePerson.csproj", "{AAA3BD72-DD88-4F9D-ABC4-2CE25DC884B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tbSearchTime", "tbBinarySearch\tbSearchTime.csproj", "{29AC65E2-462E-4525-B094-043AC4F1685B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AAA3BD72-DD88-4F9D-ABC4-2CE25DC884B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAA3BD72-DD88-4F9D-ABC4-2CE25DC884B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAA3BD72-DD88-4F9D-ABC4-2CE25DC884B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29AC65E2-462E-4525-B094-043AC4F1685B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29AC65E2-462E-4525-B094-043AC4F1685B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29AC65E2-462E-4525-B094-043AC4F1685B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29AC65E2-462E-4525-B094-043AC4F1685B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

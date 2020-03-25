@@ -57,25 +57,34 @@ namespace tbBubble
             PrintList(personList);
             Console.WriteLine("");
 
-            BubbleSort(personList);
+            //---Testdel för att testa sin Bubblesort samt räkna på tid
+            var watch = System.Diagnostics.Stopwatch.StartNew(); //Starta klocka
+            BubbleSort(personList); //Sortera
+            watch.Stop(); //Stanna klocka
+            var elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine("Det tog " + elapsedMs + "ms att sortera listan med " + personList.Count + " antal personer\n\n");
+
 
             Console.WriteLine("Skriver ut sorterad lista (jämför just nu med ålder, från minst till störst)...");
             PrintList(personList);
-            Console.WriteLine("");
+            Console.WriteLine("\n");
 
-            /*
 
-            //Testdel för att testa 
+
+
+            //---Testdel för att testa IComparable
             Console.WriteLine("Sorterar listan (jämför just nu med ålder, från minst till störst)...");
             personList.Sort();
             Console.WriteLine("...klarsorterad\n");
 
             Console.WriteLine("Skriver ut sorterad lista (jämför just nu med ålder, från minst till störst)...");
             PrintList(personList);
-            Console.WriteLine("");
+            Console.WriteLine("\n");
 
 
-            //Testdel, för att testa större än (>) och mindre än (<) operatorerna
+
+
+            //---Testdel, för att testa större än (>) och mindre än (<) operatorerna
             if (personA > personB)
             {
                 Console.WriteLine("PersonA väger mer än PersonB");
@@ -101,17 +110,6 @@ namespace tbBubble
             {
                 Console.WriteLine("PersonB och PersonC är inte lika gamla");
             }
-
-
-
-            ////Bubble sort med en Person
-            //var watch = System.Diagnostics.Stopwatch.StartNew();
-            //// the code that you want to measure comes here
-            //watch.Stop();
-            //var elapsedMs = watch.ElapsedMilliseconds;
-            //Console.WriteLine();
-            */
-
         }
     }
 }

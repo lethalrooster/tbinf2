@@ -43,9 +43,9 @@ namespace tbBubble
             set { weight = value; }
         }
 
-        public int CompareTo(Person other)
+        public int CompareTo(Person other) //Måste implementeras då Person ärver av IComparable, som kräver att metoden finns
         {
-            return age.CompareTo(other.age); //lägg till *-1 för att ändra sorteringsordning;
+            return age.CompareTo(other.age); //lägg till *-1 efter sista parantesen för att ändra sorteringsordning;
         }
 
         //---------------------------------------

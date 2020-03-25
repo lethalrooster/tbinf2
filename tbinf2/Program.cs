@@ -10,11 +10,6 @@ namespace tbinf2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Jonas");
-
-            Console.WriteLine("Ströberg");
-
-            Console.WriteLine("This line is importnant");
         }
     }
 }
