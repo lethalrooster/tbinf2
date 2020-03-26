@@ -8,6 +8,7 @@ namespace tbBinarySearch
 {
     class Program
     {
+
         static int BinarySearch(List<int> numbers, int value)
         {
             int startIndex = 0;

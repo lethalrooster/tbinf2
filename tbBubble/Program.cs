@@ -61,7 +61,7 @@ namespace tbBubble
             var watch = System.Diagnostics.Stopwatch.StartNew(); //Starta klocka
             BubbleSort(personList); //Sortera
             watch.Stop(); //Stanna klocka
-            var elapsedMs = watch.ElapsedMilliseconds;
+            long elapsedMs = watch.ElapsedMilliseconds;
             Console.WriteLine("Det tog " + elapsedMs + "ms att sortera listan med " + personList.Count + " antal personer\n\n");
 
 
