@@ -58,15 +58,16 @@ namespace tbBinarySearch
                 numbers.Add(rand.Next(0, 100000000));
             }
 
-            int valueToFind = 500;
+            int valueToFind = 500; //Vill hitta värdet 500 (kan välja ett värde mellan 0 och 99999999)
 
             //LINJÄRSÖKNING I OSORTERAD LISTA
             var watch = System.Diagnostics.Stopwatch.StartNew(); //Starta klocka
-            int index = LinarySearch(numbers, valueToFind);
+            int index = LinarySearch(numbers, valueToFind); //Utför linjärsökning
             watch.Stop(); //Stanna klocka
             long elapsedMs = watch.ElapsedMilliseconds; //Hämta hur länge klockan varit igång (i millisekunder)
+            Console.WriteLine("---LINJÄRSÖKNING---");
             Console.WriteLine("Värdet " + valueToFind + " ligger på plats " + index);
-            Console.WriteLine("Linjärsökning: Det tog " + elapsedMs + "ms att hitta värdet " + valueToFind + " i en osorterade listan med " + numbers.Count + " heltal\n\n");
+            Console.WriteLine("Det tog " + elapsedMs + "ms att hitta första värdet " + valueToFind + " i en osorterade listan med " + numbers.Count + " heltal\n\n");
 
             //SORTERA LISTA MED INBYGGD METOD SORT
             watch = System.Diagnostics.Stopwatch.StartNew(); //Starta klocka
@@ -80,8 +81,9 @@ namespace tbBinarySearch
             index = BinarySearch(numbers, valueToFind); //Utför binärsökning
             watch.Stop(); //Stanna klocka
             elapsedMs = watch.ElapsedMilliseconds; //Hämta hur länge klockan varit igång (i millisekunder)
+            Console.WriteLine("---BINÄRSÖKNING---");
             Console.WriteLine("Värdet " + valueToFind + " ligger på plats " + index);
-            Console.WriteLine("Binärsökning: Det tog " + elapsedMs + "ms att hitta värdet " + valueToFind + " i listan med " + numbers.Count + " heltal\n\n");
+            Console.WriteLine("Det tog " + elapsedMs + "ms att hitta värdet " + valueToFind + " i listan med " + numbers.Count + " heltal\n\n");
 
            
 
