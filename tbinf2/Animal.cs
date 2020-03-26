@@ -6,15 +6,7 @@ using System.Threading.Tasks;
 
 namespace tbinf2
 {
-    class Program
+    class Animal
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Andreas");
-
-
-
-
-        }
     }
 }
