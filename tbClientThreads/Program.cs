@@ -2,23 +2,25 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-namespace tbSimpleClient
+using System.Threading;
+
+namespace tbClientThreads
 {
     class Program
     {
         private static readonly Socket ClientSocket =
             new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         private const int Port = 65002;
-        
+
         static void Main()
         {
-            Console.Title = "Client";
+            Console.Title = "Klient";
             ConnectToServer();
             RequestLoop();
             ClientSocket.Shutdown(SocketShutdown.Both);
             ClientSocket.Close();
         }
-        
+
         private static void ConnectToServer()
         {
             int attempts = 0;
@@ -28,7 +30,7 @@ namespace tbSimpleClient
                 {
                     attempts++;
                     Console.WriteLine("Connection attempt " + attempts);
-                    ClientSocket.Connect(IPAddress.Parse("127.0.0.1"), Port);
+                    ClientSocket.Connect(IPAddress.Parse("217.31.164.201"), Port);
                 }
                 catch (SocketException)
                 {
@@ -38,20 +40,26 @@ namespace tbSimpleClient
             Console.Clear();
             Console.WriteLine("Connected");
         }
-        
+
+        public static void ReadServer()
+        {
+            ReceiveResponse();
+        }
+
         private static void RequestLoop()
         {
-            Console.WriteLine(@"<Type ""exit"" to properly disconnect client>");
+            Thread readServerThread = new Thread(new ThreadStart(ReadServer));
+
+            readServerThread.Start();
+
+            Console.WriteLine("Skriv disconnect för att koppla från servern");
             string requestSent = string.Empty;
             try
             {
-                while (requestSent.ToLower() != "exit")
+                while (requestSent.ToLower() != "disconnect")
                 {
-                    Console.Write("Send a request: ");
                     requestSent = Console.ReadLine();
                     ClientSocket.Send(Encoding.UTF8.GetBytes(requestSent), SocketFlags.None);
-
-                    ReceiveResponse();
                 }
             }
             catch (Exception)
@@ -63,10 +71,20 @@ namespace tbSimpleClient
         private static void ReceiveResponse()
         {
             var buffer = new byte[2048];
-            int received = ClientSocket.Receive(buffer, SocketFlags.None);
-            if (received == 0)
+            try
+            {
+                int received = ClientSocket.Receive(buffer, SocketFlags.None);
+                if (received == 0)
+                    return;
+                Console.WriteLine(Encoding.UTF8.GetString(buffer, 0, received));
+                ReceiveResponse();
+            }
+            catch(System.Net.Sockets.SocketException)
+            {
+                Console.WriteLine("Frånkopplar från server...");
                 return;
-            Console.WriteLine(Encoding.UTF8.GetString(buffer, 0, received));
+            }
+            
         }
     }
 }
