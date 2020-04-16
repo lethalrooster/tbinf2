@@ -8,7 +8,7 @@ namespace TcpClient
     {
         private static readonly Socket ClientSocket =
             new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        private const int Port = 65001;
+        private const int Port = 65002;
         
         static void Main()
         {
