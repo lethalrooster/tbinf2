@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -70,7 +73,12 @@ namespace tbServerMutlipleClients
                 return;
             }
 
-
+            //Skicka bildfil
+            MemoryStream ms = new MemoryStream();
+            Bitmap bmp = new Bitmap(Image.FromFile("C:/temp/testimg.jpg"));
+            bmp.Save(ms, ImageFormat.Jpeg);
+            byte[] byteArray = ms.ToArray();
+            current.Send(byteArray);
 
             string text = Encoding.UTF8.GetString(Buffer, 0, received);
 
