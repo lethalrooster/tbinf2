@@ -76,17 +76,26 @@ namespace tbClientThreads
             {
                 int received = ClientSocket.Receive(buffer, SocketFlags.None);
 
-                //Konvertera buffer-arrayen till en bild
-                ImageConverter convertData = new ImageConverter();
-                Image image = (Image)convertData.ConvertFrom(buffer);
-                
-                //Spara bilden till hårddisk
-                image.Save("C:/temp/sentimg.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-                
                 if (received == 0)
                     return;
 
-                Console.WriteLine(Encoding.UTF8.GetString(buffer, 0, received));
+                string message = Encoding.UTF8.GetString(buffer, 0, received);
+                Console.WriteLine(message);
+                if (message == "sendingimage")
+                {
+                    Console.WriteLine("Tar emot bild från servern...");
+                    received = ClientSocket.Receive(buffer, SocketFlags.None);
+
+                    string path = "C:/temp/sentimg.jpg";
+                    Console.WriteLine("Bild mottagen. Sparar bilden till " + path);
+                    //Konvertera buffer-arrayen till en bild
+                    ImageConverter convertData = new ImageConverter();
+                    Image image = (Image)convertData.ConvertFrom(buffer);
+
+                    //Spara bilden till hårddisk
+                    image.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+                
                 ReceiveResponse();
             }
             catch(System.Net.Sockets.SocketException)

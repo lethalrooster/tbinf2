@@ -73,13 +73,6 @@ namespace tbServerMutlipleClients
                 return;
             }
 
-            //Skicka bildfil
-            MemoryStream ms = new MemoryStream();
-            Bitmap bmp = new Bitmap(Image.FromFile("C:/temp/testimg.jpg"));
-            bmp.Save(ms, ImageFormat.Jpeg);
-            byte[] byteArray = ms.ToArray();
-            current.Send(byteArray);
-
             string text = Encoding.UTF8.GetString(Buffer, 0, received);
 
             IPEndPoint crep = current.RemoteEndPoint as IPEndPoint;
@@ -89,7 +82,6 @@ namespace tbServerMutlipleClients
             Console.WriteLine("Text skickad till (server lokal ip): " + clep.Address);
 
             
-
             Console.WriteLine("Mottagen text: '" + text + "' -> skickas till övriga klienter");
 
             foreach (Socket s in ClientSockets)
@@ -107,6 +99,30 @@ namespace tbServerMutlipleClients
 
             switch (text.ToLower())
             {
+                case "getimage":
+                    Console.WriteLine("Skickar bild till klient...");
+                    //Förbereder klienten att en bild ska skickas
+                    current.Send(Encoding.UTF8.GetBytes("sendingimage"));
+
+                    // Bilden ligger i projektkatalogen (enbart för att den ska med tydligt i Github)
+                    // Hämta projektkatalogen via körkatalogen
+
+                    // Hämta körkatalogen (exempel: \bin\Debug)
+                    string workingDirectory = Environment.CurrentDirectory;
+                    // Hämta projektkatalogen
+                    string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+
+                    //Förbereder att skicka bildfil
+                    //Gör om bild till byteArray
+                    MemoryStream ms = new MemoryStream();
+                    Bitmap bmp = new Bitmap(Image.FromFile(projectDirectory + "\\testimg.jpg"));
+                    bmp.Save(ms, ImageFormat.Jpeg);
+                    byte[] byteArray = ms.ToArray();
+
+                    //Skicka över byteArrayen (bilddata)
+                    current.Send(byteArray);
+                    break;
+
                 case "disconnect":
                     current.Shutdown(SocketShutdown.Both);
                     current.Close();
