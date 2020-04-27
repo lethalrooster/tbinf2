@@ -40,7 +40,7 @@ namespace tbMonoGameRotateImage
             wheel = new RouletteWheel(Content.Load<Texture2D>("roulette"), new Vector2(500, 500), 1.0f);
             wheel2 = new RouletteWheel(Content.Load<Texture2D>("roulette"), new Vector2(100, 100), 0.5f);
 
-            character = new Character(Content.Load<Texture2D>("spritesheet"), new Vector2(500, 500));
+            //character = new Character(Content.Load<Texture2D>("spritesheet"), new Vector2(500, 500));
         }
 
         protected override void UnloadContent()
@@ -52,10 +52,11 @@ namespace tbMonoGameRotateImage
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            //wheel.Update();
+            wheel.Update();
+
             //wheel2.Update();
 
-            character.Update(gameTime);
+            //character.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -66,10 +67,10 @@ namespace tbMonoGameRotateImage
 
             spriteBatch.Begin();
 
-            //wheel.Draw(spriteBatch);
+            wheel.Draw(spriteBatch);
             //wheel2.Draw(spriteBatch);
 
-            character.Draw(spriteBatch);
+            //character.Draw(spriteBatch);
 
             spriteBatch.End();
 
