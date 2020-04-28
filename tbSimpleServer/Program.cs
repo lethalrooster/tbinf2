@@ -8,7 +8,7 @@ namespace TcpServerSingle
     {
         private static Socket _serverSocket;
         private const int BufferSize = 2048;
-        private const int Port = 65002;
+        private const int Port = 65001;
         private static readonly byte[] Buffer = new byte[BufferSize];
         private static bool _closing;
         static void Main()
