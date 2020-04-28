@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-namespace TcpClient
+namespace tbSimpleClient
 {
     class Program
     {
@@ -50,6 +50,7 @@ namespace TcpClient
                     Console.Write("Send a request: ");
                     requestSent = Console.ReadLine();
                     ClientSocket.Send(Encoding.UTF8.GetBytes(requestSent), SocketFlags.None);
+
                     ReceiveResponse();
                 }
             }
