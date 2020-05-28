@@ -50,7 +50,6 @@ namespace tbSimpleClient
                     Console.Write("Send a request: ");
                     requestSent = Console.ReadLine();
                     ClientSocket.Send(Encoding.UTF8.GetBytes(requestSent), SocketFlags.None);
-
                     ReceiveResponse();
                 }
             }

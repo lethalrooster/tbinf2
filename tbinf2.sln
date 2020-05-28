@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tbClientThreads", "tbClient
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tbMonoGameRotateImage", "tbMonoGameRotateImage\tbMonoGameRotateImage.csproj", "{BFF89343-44F9-45FD-9B3E-9BC1A35F5D57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tbClassExample", "tbClassExample\tbClassExample.csproj", "{6589369D-41EF-44C6-8BB0-A5C647D8BB61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,6 +122,14 @@ Global
 		{BFF89343-44F9-45FD-9B3E-9BC1A35F5D57}.Release|Any CPU.ActiveCfg = Release|x86
 		{BFF89343-44F9-45FD-9B3E-9BC1A35F5D57}.Release|x86.ActiveCfg = Release|x86
 		{BFF89343-44F9-45FD-9B3E-9BC1A35F5D57}.Release|x86.Build.0 = Release|x86
+		{6589369D-41EF-44C6-8BB0-A5C647D8BB61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6589369D-41EF-44C6-8BB0-A5C647D8BB61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6589369D-41EF-44C6-8BB0-A5C647D8BB61}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6589369D-41EF-44C6-8BB0-A5C647D8BB61}.Debug|x86.Build.0 = Debug|Any CPU
+		{6589369D-41EF-44C6-8BB0-A5C647D8BB61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6589369D-41EF-44C6-8BB0-A5C647D8BB61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6589369D-41EF-44C6-8BB0-A5C647D8BB61}.Release|x86.ActiveCfg = Release|Any CPU
+		{6589369D-41EF-44C6-8BB0-A5C647D8BB61}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

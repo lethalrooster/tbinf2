@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
 using System.Threading;
+using System.Drawing;
 
 namespace tbMonoGameRotateImage
 {
@@ -15,6 +16,7 @@ namespace tbMonoGameRotateImage
 
         //Character character;
 
+        Image i;
         
         //EXEMPEL 1 och 2:
         SpriteFont thread_font; //En spritefont för att kunna rita ut text, inte trådspecifikt, men nyttjas här för exempel 1 och 2.
@@ -132,7 +134,7 @@ namespace tbMonoGameRotateImage
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.CornflowerBlue);
 
             spriteBatch.Begin();
 
@@ -140,11 +142,12 @@ namespace tbMonoGameRotateImage
             //character.Draw(spriteBatch);
 
             //EXEMPEL 1
-            spriteBatch.DrawString(thread_font, thread_data.GetData, new Vector2(50, 50), Color.White); //Grafiktråden läser data från thread_data
+            spriteBatch.DrawString(thread_font, thread_data.GetData, new Vector2(50, 50), Microsoft.Xna.Framework.Color.White); //Grafiktråden läser data från thread_data
             //-----------
 
+
             //EXEMPEL 2 
-            spriteBatch.DrawString(thread_font, data.ToString(), new Vector2(50, 100), Color.White); //Grafiktråden läser data som A och B ändrar
+            spriteBatch.DrawString(thread_font, data.ToString(), new Vector2(50, 100), Microsoft.Xna.Framework.Color.White); //Grafiktråden läser data som A och B ändrar
             //-----------
 
             spriteBatch.End();
