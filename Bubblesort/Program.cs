@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tbinf2
+namespace Bubblesort
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Mattias");
         }
     }
 }
